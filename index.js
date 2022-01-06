@@ -11,13 +11,21 @@ function createEmployeeRecord(employeeInfo){
     return employeeObj
 }
 
-
-
 function createEmployeeRecords(employeeAray){
-    return employeeAray.forEach(employee => {
-        return createEmployeeRecord(employee)
+    let newArray = []
+    employeeAray.forEach(employee => {
+        newArray.push(createEmployeeRecord(employee))
     })
+    return newArray
 }
 
-// createEmployeeRecords(twoRows)
+function createTimeInEvent(obj, dateStamp){
+    let timeInEventObj = {
+        tpye:"TimeIn",
+        hour:dateStamp.hour,
+        date:dateStamp.date
+    }
+    obj.timeInEvents.push(timeInEventObj)
+}
+
 
