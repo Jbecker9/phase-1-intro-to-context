@@ -20,11 +20,13 @@ function createEmployeeRecords(employeeAray){
 }
 
 function createTimeInEvent(obj, dateStamp){
+    let [date, hour] = dateStamp.split(" ")
     let timeInEventObj = {
-        tpye:"TimeIn",
-        hour:dateStamp.hour,
-        date:dateStamp.date
+        type:"TimeIn",
+        date:date,
+        hour:hour
     }
+    console.log(timeInEventObj)
     obj.timeInEvents.push(timeInEventObj)
 }
 
