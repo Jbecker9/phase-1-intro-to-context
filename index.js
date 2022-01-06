@@ -24,10 +24,11 @@ function createTimeInEvent(obj, dateStamp){
     let timeInEventObj = {
         type:"TimeIn",
         date:date,
-        hour:hour
+        hour:parseInt(hour)
     }
     console.log(timeInEventObj)
     obj.timeInEvents.push(timeInEventObj)
+    return obj
 }
 
 
