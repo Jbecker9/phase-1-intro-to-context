@@ -26,8 +26,18 @@ function createTimeInEvent(obj, dateStamp){
         date:date,
         hour:parseInt(hour)
     }
-    console.log(timeInEventObj)
     obj.timeInEvents.push(timeInEventObj)
+    return obj
+}
+
+function createTimeOutEvent(obj, dateStamp){
+    let [date, hour] = dateStamp.split(' ')
+    let timeOutObj = {
+        type:"TimeOut",
+        date:date,
+        hour:parseInt(hour)
+    }
+    obj.timeOutEvents.push(timeOutObj)
     return obj
 }
 
