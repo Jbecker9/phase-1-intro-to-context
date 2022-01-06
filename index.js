@@ -10,13 +10,14 @@ function createEmployeeRecord(employeeInfo){
         }
     return employeeObj
 }
-createEmployeeRecord(testEmployee)
+
+
 
 function createEmployeeRecords(employeeAray){
-    employeeAray.forEach(employee => {
-        createEmployeeRecord(employee)
+    return employeeAray.forEach(employee => {
+        return createEmployeeRecord(employee)
     })
 }
 
-createEmployeeRecords(twoRows)
+// createEmployeeRecords(twoRows)
 
