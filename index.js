@@ -68,7 +68,16 @@ function allWagesFor(employeeRecordObj){
 }
 
 function calculatePayroll(EmployeeRecordArray){
-    console.log(EmployeeRecordArray)
+    let wageArray = EmployeeRecordArray
+        .map(employee => { 
+            let wage = allWagesFor(employee)
+            return wage
+        })
+    
+    let totalPayroll = wageArray.reduce(
+        (a, b) => a + b
+        )
+    return totalPayroll
 }
 
 
