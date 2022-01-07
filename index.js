@@ -53,7 +53,6 @@ function hoursWorkedOnDate(obj, formDate){
         .forEach(el => {
             hourIn.push(el.hour, el.date)
         })
-    console.log(hourOut[1], hourIn[1])
 
     let totalHours = 0
     if(hourOut[1] === hourOut[1]){
@@ -74,7 +73,10 @@ function allWagesFor(obj, formDate){
     // console.log(obj.timeInEvents, obj.timeOutEvents)
     const inEventMap = obj.timeInEvents
         .map(x => x.date)
-    inEventMap.reduce(wagesEarnedOnDate)
+    let payable = inEventMap.reduce(() =>{
+        return wagesEarnedOnDate(obj, formDate)
+    }, 0)
+    return payable
 }
 
 
