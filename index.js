@@ -41,4 +41,37 @@ function createTimeOutEvent(obj, dateStamp){
     return obj
 }
 
+function hoursWorkedOnDate(obj, formDate){
+    let hourOut = []
+    obj['timeOutEvents']
+        .forEach(el => {
+        hourOut.push(el.hour, el.date)
+    })
+
+    let hourIn = []
+    obj['timeInEvents']
+        .forEach(el => {
+            hourIn.push(el.hour, el.date)
+        })
+    console.log(hourOut[1], hourIn[1])
+
+    let totalHours = 0
+    if(hourOut[1] === hourOut[1]){
+    totalHours = (hourOut[0] - hourIn[0]) / 100
+    }
+    else{
+    }
+    return totalHours
+}
+
+function wagesEarnedOnDate(obj, formDate){
+    let salary = obj.payPerHour
+    let totalOwed = salary * hoursWorkedOnDate(obj, formDate)
+    return totalOwed
+}
+
+function allWagesFor(obj, formDate){
+    console.log(obj)
+}
+
 
