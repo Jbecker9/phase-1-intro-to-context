@@ -63,19 +63,47 @@ function hoursWorkedOnDate(obj, formDate){
     return totalHours
 }
 
-function wagesEarnedOnDate(obj, formDate){
-    let salary = obj.payPerHour
-    let totalOwed = salary * hoursWorkedOnDate(obj, formDate)
+function wagesEarnedOnDate(EmployeeRecordObj, formDate){
+    let salary = EmployeeRecordObj.payPerHour
+    let totalOwed = salary * hoursWorkedOnDate(EmployeeRecordObj, formDate)
     return totalOwed
 }
 
-function allWagesFor(obj, formDate){
-    // console.log(obj.timeInEvents, obj.timeOutEvents)
-    const inEventMap = obj.timeInEvents
-        .map(x =>{ return x.date})
-    let payable = inEventMap.reduce((memo, formDate) =>memo + wagesEarnedOnDate(obj, formDate)
-    , 0)
-    return payable
+function allWagesFor(employeeRecordObj){
+const dateArray = [
+    '0044-03-14',
+    '0044-03-14'
+]
+
+    // console.log(employeeRecordObj.timeInEvents, employeeRecordObj.timeOutEvents)
+
+// 1. pair matching time objects
+
+// 2. grab their hours 
+
+// 3. subtract the hours(out first)
+
+// 4. subtractTotal * payperhour 
+
+// 5. push into empty array (map)
+
+// 6. reduce array values
+
+// 7. return reduction
+
+    const inEventMap = employeeRecordObj.timeInEvents
+    .map(x => x)
+    for(let i = inEventMap; i===i ; i++){
+       let total = (wagesEarnedOnDate(employeeRecordObj,i) + wagesEarnedOnDate(employeeRecordObj,i))
+       return total
+    }
+    return total
+    // console.log(employeeRecordObj)
+    // console.log("this is an event map")
+    // console.log(inEventMap)
+    // let payable = inEventMap.reduce((memo, formDate) =>memo + wagesEarnedOnDate(employeeRecordObj, formDate)
+    // , 0)
+    // return payable
 }
 
 
