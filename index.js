@@ -71,7 +71,10 @@ function wagesEarnedOnDate(obj, formDate){
 }
 
 function allWagesFor(obj, formDate){
-    console.log(obj)
+    // console.log(obj.timeInEvents, obj.timeOutEvents)
+    const inEventMap = obj.timeInEvents
+        .map(x => x.date)
+    inEventMap.reduce(wagesEarnedOnDate)
 }
 
 
