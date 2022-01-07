@@ -67,8 +67,8 @@ function allWagesFor(employeeRecordObj){
     return payable
 }
 
-function calculatePayroll(){
-    
+function calculatePayroll(EmployeeRecordArray){
+    console.log(EmployeeRecordArray)
 }
 
 
