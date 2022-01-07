@@ -41,25 +41,14 @@ function createTimeOutEvent(obj, dateStamp){
     return obj
 }
 
-function hoursWorkedOnDate(obj, formDate){
-    let hourOut = []
-    obj['timeOutEvents']
-        .forEach(el => {
-        hourOut.push(el.hour, el.date)
+function hoursWorkedOnDate(employeeObj, soughtDate){
+    let wageDateIn = employeeObj.timeInEvents.find(el => {
+      return el.date === soughtDate
     })
-
-    let hourIn = []
-    obj['timeInEvents']
-        .forEach(el => {
-            hourIn.push(el.hour, el.date)
-        })
-
-    let totalHours = 0
-    if(hourOut[1] === hourOut[1]){
-    totalHours = (hourOut[0] - hourIn[0]) / 100
-    }
-    else{
-    }
+    let wageDateOut = employeeObj.timeOutEvents.find(el => {
+        return el.date === soughtDate
+    })
+    let totalHours = (wageDateOut.hour - wageDateIn.hour) / 100
     return totalHours
 }
 
@@ -70,40 +59,16 @@ function wagesEarnedOnDate(EmployeeRecordObj, formDate){
 }
 
 function allWagesFor(employeeRecordObj){
-const dateArray = [
-    '0044-03-14',
-    '0044-03-14'
-]
-
-    // console.log(employeeRecordObj.timeInEvents, employeeRecordObj.timeOutEvents)
-
-// 1. pair matching time objects
-
-// 2. grab their hours 
-
-// 3. subtract the hours(out first)
-
-// 4. subtractTotal * payperhour 
-
-// 5. push into empty array (map)
-
-// 6. reduce array values
-
-// 7. return reduction
-
     const inEventMap = employeeRecordObj.timeInEvents
-    .map(x => x)
-    for(let i = inEventMap; i===i ; i++){
-       let total = (wagesEarnedOnDate(employeeRecordObj,i) + wagesEarnedOnDate(employeeRecordObj,i))
-       return total
-    }
-    return total
-    // console.log(employeeRecordObj)
-    // console.log("this is an event map")
-    // console.log(inEventMap)
-    // let payable = inEventMap.reduce((memo, formDate) =>memo + wagesEarnedOnDate(employeeRecordObj, formDate)
-    // , 0)
-    // return payable
+    .map(timeInObj => {
+       return wagesEarnedOnDate(employeeRecordObj, timeInObj.date)
+    })
+    let payable = inEventMap.reduce((a, b) => a + b)
+    return payable
+}
+
+function calculatePayroll(){
+    
 }
 
 
